@@ -1,5 +1,4 @@
 exports.seed = async function (knex) {
-  //   await knex("classes").truncate();
   await knex("classes").insert([
     {
       name: "Class 1",
