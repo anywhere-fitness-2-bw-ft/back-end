@@ -4,22 +4,18 @@ exports.seed = async function (knex) {
     {
       username: "User 1",
       password: "pwd",
-      role: "instructor",
     },
     {
       username: "User 2",
       password: "pwd",
-      role: "client",
     },
     {
       username: "User 3",
       password: "pwd",
-      role: "instructor",
     },
     {
       username: "User 4",
       password: "pwd",
-      role: "client",
     },
   ]);
 };
