@@ -1,12 +1,19 @@
 const db = require("../data/db-config");
 
+function find() {
+  return db("classes");
+}
+
+function findById(class_id) {
+  return db("classes").where("class_id", class_id);
+}
+
 function findBy(filter) {
-  return db("users as u")
-    .join("roles as r", "u.role_id", "=", "r.role_id")
-    .select("u.user_id", "u.username", "r.role_name", "u.password")
-    .where(filter);
+  return db("classes").where(filter);
 }
 
 module.exports = {
+  find,
   findBy,
+  findById,
 };

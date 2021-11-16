@@ -1,5 +1,9 @@
 # Anywhere Fitness API Endpoints
 
+# Base API URL
+
+https://anywhere-fitness-back-end-2021.herokuapp.com/
+
 # /api/auth
 
 [POST] /auth/register - Sign Up.
