@@ -13,8 +13,8 @@ The object must have:
 1. username
 2. password
 3. role_id
-   a. "1" - instructor
-   b. "2" - client
+   1. "1" - instructor
+   2. "2" - client
 
 [POST] /auth/login - Logs the given user in.
 
