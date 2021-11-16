@@ -21,12 +21,16 @@ function findById(user_id) {
     .first();
 }
 
-const addUser = (user) => {
-  return db("users").insert(user);
+const addUser = async ({ username, password, role_id }) => {
+  await db("users").insert({
+    username,
+    password,
+    role_id,
+  });
 };
 
-const deleteUser = (id) => {
-  return db("users").where("user_id", id).del();
+const deleteUser = (user_id) => {
+  return db("users").where("user_id", user_id).del();
 };
 
 module.exports = {

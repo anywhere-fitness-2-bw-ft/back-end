@@ -2,14 +2,13 @@ const router = require("express").Router();
 const Users = require("../users/users-model");
 const bcrypt = require("bcryptjs");
 const tokenBuilder = require("./token-builder");
-const Auth = require("./auth-model");
 const { checkUsernameExists } = require("./auth-middleware");
 
 router.post("/register", async (req, res, next) => {
   const { username, password, role_id } = req.body;
   const hash = bcrypt.hashSync(password, 6);
   try {
-    const newUser = await Auth.addUser({
+    const newUser = await Users.addUser({
       username,
       password: hash,
       role_id,
@@ -24,7 +23,6 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
   if (bcrypt.compareSync(req.body.password, req.user.password)) {
     const token = tokenBuilder(req.user);
     res.json({
-      status: 200,
       message: `Welcome, ${req.user.username}.`,
       token,
     });
