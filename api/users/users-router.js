@@ -13,18 +13,9 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
-    const { user_id } = req.params;
-    const user = await Users.findById(user_id);
+    const { id } = req.params;
+    const user = await Users.findById(id);
     res.status(200).json(user);
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.post("/", async (req, res, next) => {
-  try {
-    const newUser = await Users.addUser(req.body);
-    res.status(201).json(newUser);
   } catch (err) {
     next(err);
   }
@@ -32,8 +23,8 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:id", checkId, async (req, res, next) => {
   try {
-    const { user_id } = req.params;
-    const delUser = await Users.deleteUser(user_id);
+    const { id } = req.params;
+    const delUser = await Users.deleteUser(id);
     res.status(200).json(delUser);
   } catch (err) {
     next(err);
