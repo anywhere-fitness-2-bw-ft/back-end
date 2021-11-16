@@ -1,25 +1,25 @@
 const db = require("../data/db-config");
 
-function find() {
+const find = () => {
   return db("users as u")
     .join("roles as r", "u.role_id", "=", "r.role_id")
     .select("u.user_id", "u.username", "r.role_name");
-}
+};
 
-function findById(user_id) {
+const findById = (user_id) => {
   return db("users as u")
     .join("roles as r", "u.role_id", "=", "r.role_id")
     .select("u.user_id", "u.username", "r.role_name")
     .where("u.user_id", user_id)
     .first();
-}
+};
 
-function findBy(filter) {
+const findBy = (filter) => {
   return db("users as u")
     .join("roles as r", "u.role_id", "=", "r.role_id")
     .select("u.user_id", "u.username", "r.role_name", "u.password")
     .where(filter);
-}
+};
 
 const addUser = async ({ username, password, role_id }) => {
   await db("users").insert({
