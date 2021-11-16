@@ -17,18 +17,6 @@ const checkUsernameExists = async (req, res, next) => {
   }
 };
 
-const only = (role_name) => (req, res, next) => {
-  if (req.decodedJwt.role_name !== role_name) {
-    next({
-      status: 403,
-      message: "Access Denied",
-    });
-  } else {
-    next();
-  }
-};
-
 module.exports = {
   checkUsernameExists,
-  only,
 };
