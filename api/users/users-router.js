@@ -11,11 +11,18 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/:id", checkId, (req, res, next) => {
   try {
-    const { id } = req.params;
-    const user = await Users.findById(id);
-    res.status(200).json(user);
+    res.json(req.user);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/:id", checkId, async (req, res, next) => {
+  try {
+    const updUser = await Users.updateUser(req.params.id, req.body);
+    res.status(200).json(updUser);
   } catch (err) {
     next(err);
   }
