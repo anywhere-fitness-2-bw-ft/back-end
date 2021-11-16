@@ -2,16 +2,17 @@ const router = require("express").Router();
 const Users = require("../users/users-model");
 const bcrypt = require("bcryptjs");
 const tokenBuilder = require("./token-builder");
+const Auth = require("./auth-model");
 const { checkUsernameExists } = require("./auth-middleware");
 
 router.post("/register", async (req, res, next) => {
-  const { username, password, role_name } = req.body;
+  const { username, password, role_id } = req.body;
   const hash = bcrypt.hashSync(password, 6);
   try {
-    const newUser = await Users.add({
+    const newUser = await Auth.addUser({
       username,
       password: hash,
-      role_name,
+      role_id,
     });
     res.status(201).json(newUser);
   } catch (err) {
@@ -24,7 +25,7 @@ router.post("/login", checkUsernameExists, (req, res, next) => {
     const token = tokenBuilder(req.user);
     res.json({
       status: 200,
-      message: `${req.user.username} is back!`,
+      message: `Welcome, ${req.user.username}.`,
       token,
     });
   } else {
