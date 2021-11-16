@@ -22,6 +22,8 @@ Logging in will create a token.
 
 [GET] /api/users - Retrieves all current users.
 
+[GET] /api/users/:id - Retrieves the user of the given ID.
+
 [PUT] /api/users/:id - Updates user, body must be at least one updated value.
 
 [DELETE] /api/users/:id - Deletes a user of the given ID.
@@ -29,6 +31,8 @@ Logging in will create a token.
 # /api/classes
 
 [GET] /api/classes - Retrieves all current classes.
+
+[GET] /api/classes/:id - Retrieves the class of the given ID.
 
 [POST] /api/classes - Creates a new class.
 
