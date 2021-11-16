@@ -25,7 +25,6 @@ const restricted = (req, res, next) => {
 const checkUsernameExists = async (req, res, next) => {
   try {
     const user = await User.findBy({ username: req.body.username });
-    console.log(user);
     if (!user.length) {
       next({
         status: 401,
