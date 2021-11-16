@@ -3,10 +3,10 @@
 # /api/auth
 [POST] /auth/register - Sign Up
 
-The object's body must contain:
+The object must have:
 
-username - A unique username
-password - A password
+1. username 
+2. password
 
 [POST] /auth/login - Log In
 
