@@ -20,8 +20,19 @@ function findById(user_id) {
     .where("u.user_id", user_id)
     .first();
 }
+
+const addUser = (user) => {
+  return db("users").insert(user);
+};
+
+const deleteUser = (id) => {
+  return db("users").where("user_id", id).del();
+};
+
 module.exports = {
   find,
   findBy,
   findById,
+  addUser,
+  deleteUser,
 };
