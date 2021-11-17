@@ -15,7 +15,9 @@ The object must have:
 3. role_id
    1. "1" - instructor
    2. "2" - client
-4. auth - REQUIRED to register as an instructor - needs to be set to the string "1234".
+4. auth
+   1. REQUIRED to register as an instructor
+   2. Needs to be set to the string "1234".
 
 [POST] /auth/login - Logs the given user in.
 
