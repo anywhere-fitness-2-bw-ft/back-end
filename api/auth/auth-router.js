@@ -2,9 +2,12 @@ const router = require("express").Router();
 const Users = require("../users/users-model");
 const bcrypt = require("bcryptjs");
 const tokenBuilder = require("./token-builder");
-const { checkUsernameExists } = require("./auth-middleware");
+const {
+  checkUsernameExists,
+  checkUsernameUnique,
+} = require("./auth-middleware");
 
-router.post("/register", async (req, res, next) => {
+router.post("/register", checkUsernameUnique, async (req, res, next) => {
   const { username, password, role_id } = req.body;
   const hash = bcrypt.hashSync(password, 6);
   try {
