@@ -21,12 +21,13 @@ const findBy = (filter) => {
     .where(filter);
 };
 
-const addUser = async ({ username, password, role_id }) => {
-  await db("users").insert({
-    username,
-    password,
-    role_id,
-  });
+const addUser = async (user) => {
+  const [newUser] = await db("users").insert(user, [
+    "username",
+    "password",
+    "role_id",
+  ]);
+  return newUser;
 };
 
 const updateUser = async (user_id, user) => {

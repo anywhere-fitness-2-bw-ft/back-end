@@ -38,12 +38,13 @@ const validateRole = (req, res, next) => {
   if (!role_id) {
     next({ status: 418, message: "Role not selected" });
   } else if (role_id === 1 && req.body.auth === INSTRUCTOR_SECRET) {
-    req.body.role_id = role_id;
-  } else if (role_id === !req.body.auth) {
+    next();
+  } else if (role_id === 1 && !req.body.auth) {
     next({ status: 403, message: "Instructor Code Required" });
   } else if (role_id === 1 && req.body.auth !== INSTRUCTOR_SECRET) {
     next({ status: 403, message: "Invalid Instructor Code" });
   } else {
+    req.body.role_id = 2;
     next();
   }
 };
