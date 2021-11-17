@@ -22,7 +22,7 @@ const checkUsernameUnique = async (req, res, next) => {
     const userName = await User.findBy({ username: req.body.username });
     if (userName.length) {
       next({
-        message: "Username already exists.",
+        message: "Username already taken.",
       });
     } else {
       next();
