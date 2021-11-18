@@ -59,7 +59,7 @@ Response Example:
 ```
 {
    "message": "Welcome, shanegray.",
-   "token": (the encrypted token value)
+   "token": (the encoded token value)
 }
 ```
 
