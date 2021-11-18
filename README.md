@@ -23,20 +23,22 @@ Instructor Register Example:
 
 ```
 {
-"username": "shanegray",
-"password": "abc123",
-"role_id": 1,
-"auth": "1234"
+   "username": "shanegray",
+   "password": "abc123",
+   "role_id": 1,
+   "auth": "1234"
 }
 ```
 
 Client Register Example:
 
+```
 {
-"username": "shanegray1",
-"password": "abc123",
-"role_id": 2
+   "username": "shanegray1",
+   "password": "abc123",
+   "role_id": 2
 }
+```
 
 [POST] /auth/login - Logs the given user in.
 
@@ -45,17 +47,21 @@ Logging in will create a token.
 
 Login Example:
 
+```
 {
-"username": "shanegray",
-"password": "abc123"
+   "username": "shanegray",
+   "password": "abc123"
 }
+```
 
 Response Example:
 
+```
 {
-"message": "Welcome, shanegray.",
-"token": (the encrypted token value)
+   "message": "Welcome, shanegray.",
+   "token": (the encrypted token value)
 }
+```
 
 # /api/users
 
@@ -63,46 +69,54 @@ Response Example:
 
 Response Example:
 
+```
 [
-{
-"user_id": 1,
-"username": "User 1",
-"role_name": "instructor"
-},
-{
-"user_id": 2,
-"username": "User 2",
-"role_name": "client"
-}
+      {
+         "user_id": 1,
+         "username": "User 1",
+         "role_name": "instructor"
+      },
+      {
+         "user_id": 2,
+         "username": "User 2",
+         "role_name": "client"
+      }
 ]
+```
 
 [GET] /api/users/:id - Retrieves the user of the given ID.
 
 Response Example:
 
+```
 {
-"user_id": 5,
-"username": "shanegray",
-"role_name": "instructor"
+   "user_id": 5,
+   "username": "shanegray",
+   "role_name": "instructor"
 }
+```
 
 [PUT] /api/users/:id - Updates user, body must be at least one updated value.
 
 Edit Request Example:
 
+```
 {
-"username": "shanegray93",
-"role_id": 1,
-"password": "abc123"
+   "username": "shanegray93",
+   "role_id": 1,
+   "password": "abc123"
 }
+```
 
 Edit Response Example:
 
+```
 {
-"user_id": 5,
-"username": "shanegray93",
-"role_name": "instructor"
+   "user_id": 5,
+   "username": "shanegray93",
+   "role_name": "instructor"
 }
+```
 
 [DELETE] /api/users/:id - Deletes a user of the given ID.
 
@@ -112,49 +126,53 @@ Edit Response Example:
 
 Response Example:
 
+```
 [
-{
-"class_id": 1,
-"name": "Class 1",
-"start_time": "1:00PM",
-"duration": "1hr",
-"intensity_level": 8,
-"location": "Park",
-"registered_attendees": 27,
-"max_size": 30,
-"class_type_id": 1,
-"class_type_name": "running"
+   {
+   "class_id": 1,
+   "name": "Class 1",
+   "start_time": "1:00PM",
+   "duration": "1hr",
+   "intensity_level": 8,
+   "location": "Park",
+   "registered_attendees": 27,
+   "max_size": 30,
+   "class_type_id": 1,
+   "class_type_name": "running"
 },
 {
-"class_id": 2,
-"name": "Class 2",
-"start_time": "2:00PM",
-"duration": "30min",
-"intensity_level": 6,
-"location": "Gym",
-"registered_attendees": 199,
-"max_size": 200,
-"class_type_id": 2,
-"class_type_name": "swimming"
+   "class_id": 2,
+   "name": "Class 2",
+   "start_time": "2:00PM",
+   "duration": "30min",
+   "intensity_level": 6,
+   "location": "Gym",
+   "registered_attendees": 199,
+   "max_size": 200,
+   "class_type_id": 2,
+   "class_type_name": "swimming"
 }
 ]
+```
 
 [GET] /api/classes/:id - Retrieves the class of the given ID.
 
 Example Response:
 
+```
 {
-"class_id": 1,
-"name": "Class 1",
-"start_time": "1:00PM",
-"duration": "1hr",
-"intensity_level": 8,
-"location": "Park",
-"registered_attendees": 27,
-"max_size": 30,
-"class_type_id": 1,
-"class_type_name": "running"
+   "class_id": 1,
+   "name": "Class 1",
+   "start_time": "1:00PM",
+   "duration": "1hr",
+   "intensity_level": 8,
+   "location": "Park",
+   "registered_attendees": 27,
+   "max_size": 30,
+   "class_type_id": 1,
+   "class_type_name": "running"
 }
+```
 
 [POST] /api/classes - Creates a new class.
 
@@ -172,60 +190,68 @@ The object must have:
 
 Create Request Example:
 
+```
 {
-"name": "Class 9",
-"class_type_name": "hiking",
-"start_time": "11:00AM",
-"duration": "2hr",
-"intensity_level": 9,
-"location": "park",
-"registered_attendees": 4,
-"max_size": 5
+   "name": "Class 9",
+   "class_type_name": "hiking",
+   "start_time": "11:00AM",
+   "duration": "2hr",
+   "intensity_level": 9,
+   "location": "park",
+   "registered_attendees": 4,
+   "max_size": 5
 }
+```
 
 Create Response Example:
 
+```
 [
-{
-"name": "Class 9",
-"class_type_id": 3,
-"start_time": "11:00AM",
-"duration": "2hr",
-"intensity_level": 9,
-"location": "park",
-"registered_attendees": 4,
-"max_size": 5
-}
+   {
+      "name": "Class 9",
+      "class_type_id": 3,
+      "start_time": "11:00AM",
+      "duration": "2hr",
+      "intensity_level": 9,
+      "location": "park",
+      "registered_attendees": 4,
+      "max_size": 5
+   }
 ]
+```
 
 [PUT] /api/classes/:id - Updates class, body must be at least one updated value.
 
 Edit Request Example:
 
+```
 {
-"name": "Intro to Hiking",
-"class_type_name": "hiking",
-"start_time": "11:00AM",
-"duration": "2hr",
-"intensity_level": 9,
-"location": "park",
-"registered_attendees": 4,
-"max_size": 5
+   "name": "Intro to Hiking",
+   "class_type_name": "hiking",
+   "start_time": "11:00AM",
+   "duration": "2hr",
+   "intensity_level": 9,
+   "location": "park",
+   "registered_attendees": 4,
+   "max_size": 5
 }
+```
 
 Edit Response Example:
 
+```
 {
-"class_id": 5,
-"name": "Intro to Hiking",
-"start_time": "11:00AM",
-"duration": "2hr",
-"intensity_level": 9,
-"location": "park",
-"registered_attendees": 4,
-"max_size": 5,
-"class_type_id": 3,
-"class_type_name": "hiking"
+   "class_id": 5,
+   "name": "Intro to Hiking",
+   "start_time": "11:00AM",
+   "duration": "2hr",
+   "intensity_level": 9,
+   "location": "park",
+   "registered_attendees": 4,
+   "max_size": 5,
+   "class_type_id": 3,
+   "class_type_name": "hiking"
 }
+```
 
 [DELETE] /api/classes/:id - Deletes a class of the given ID.
