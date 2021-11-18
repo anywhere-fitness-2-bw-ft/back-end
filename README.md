@@ -129,29 +129,29 @@ Response Example:
 ```
 [
    {
-   "class_id": 1,
-   "name": "Class 1",
-   "start_time": "1:00PM",
-   "duration": "1hr",
-   "intensity_level": 8,
-   "location": "Park",
-   "registered_attendees": 27,
-   "max_size": 30,
-   "class_type_id": 1,
-   "class_type_name": "running"
-},
-{
-   "class_id": 2,
-   "name": "Class 2",
-   "start_time": "2:00PM",
-   "duration": "30min",
-   "intensity_level": 6,
-   "location": "Gym",
-   "registered_attendees": 199,
-   "max_size": 200,
-   "class_type_id": 2,
-   "class_type_name": "swimming"
-}
+      "class_id": 1,
+      "name": "Class 1",
+      "start_time": "1:00PM",
+      "duration": "1hr",
+      "intensity_level": 8,
+      "location": "Park",
+      "registered_attendees": 27,
+      "max_size": 30,
+      "class_type_id": 1,
+      "class_type_name": "running"
+   },
+   {
+      "class_id": 2,
+      "name": "Class 2",
+      "start_time": "2:00PM",
+      "duration": "30min",
+      "intensity_level": 6,
+      "location": "Gym",
+      "registered_attendees": 199,
+      "max_size": 200,
+      "class_type_id": 2,
+      "class_type_name": "swimming"
+   }
 ]
 ```
 
@@ -255,3 +255,5 @@ Edit Response Example:
 ```
 
 [DELETE] /api/classes/:id - Deletes a class of the given ID.
+
+Other User Endpoints tbd
