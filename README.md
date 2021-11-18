@@ -40,12 +40,15 @@ Logging in will create a token.
 
 [GET] /api/classes/:id - Retrieves the class of the given ID.
 
-[POST] /api/classes - Creates a new class.
+[POST] /api/classes -
+
+1. Creates a new class.
+2. If class_type_name doesn't already exist, it will be added to a seperate class type table and stored for future use.
 
 The object must have:
 
 1. name - what the class is called
-2. type - type of activity
+2. class_type_name - type of activity
 3. start_time - when the class begins
 4. duration - how long the class lasts
 5. intensity_level - how hard of a workout (scale of 1-10)

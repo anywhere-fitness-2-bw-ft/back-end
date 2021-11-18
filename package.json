@@ -13,7 +13,8 @@
     "seedh": "heroku run knex seed:run -a anywhere-fitness-back-end-2021",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand",
     "deploy": "git push heroku main",
-    "resetdb": "npm run rollback && npm run migrate && npm run seed"
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
+    "resetdbh": "npm run rollbackh && npm run migrateh && npm run seedh"
   },
   "engines": {
     "node": "16.13.0"

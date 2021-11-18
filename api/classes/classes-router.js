@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const Classes = require("./classes-model");
-const { checkId } = require("./classes-middleware");
+const { checkId, checkUniqueType } = require("./classes-middleware");
 
 router.get("/", async (req, res, next) => {
   try {
@@ -19,12 +19,41 @@ router.get("/:id", checkId, (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/", checkUniqueType, async (req, res, next) => {
+  let {
+    name,
+    start_time,
+    duration,
+    intensity_level,
+    location,
+    registered_attendees,
+    max_size,
+  } = req.body;
+  // const class_type_id = req.classType[0].class_type_id;
+  // console.log(req.classType[0].class_type_id);
   try {
-    const newClass = await Classes.addClass(req.body);
+    const newClass = await Classes.addClass({
+      name,
+      class_type_id: req.classType.class_type_id,
+      start_time,
+      duration,
+      intensity_level,
+      location,
+      registered_attendees,
+      max_size,
+    });
     res.status(201).json(newClass);
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post("/classtypes", async (req, res, next) => {
+  try {
+    const newClass = await Classes.addClassType(req.body.class_type_name);
+    res.status(201).json(newClass);
+  } catch (error) {
+    next(error);
   }
 });
 
