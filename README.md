@@ -21,12 +21,14 @@ The object must have:
 
 Instructor Register Example:
 
+```
 {
 "username": "shanegray",
 "password": "abc123",
 "role_id": 1,
 "auth": "1234"
 }
+```
 
 Client Register Example:
 
