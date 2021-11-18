@@ -55,12 +55,30 @@ router.post("/classtypes", async (req, res, next) => {
   }
 });
 
-router.put("/:id", checkId, async (req, res, next) => {
+router.put("/:id", checkId, checkUniqueType, async (req, res, next) => {
+  let {
+    name,
+    start_time,
+    duration,
+    intensity_level,
+    location,
+    registered_attendees,
+    max_size,
+  } = req.body;
   try {
-    const updatedClass = await Classes.updateClass(req.params.id, req.body);
-    res.status(200).json(updatedClass);
-  } catch (err) {
-    next(err);
+    const updatedClass = await Classes.updateClass(req.params.id, {
+      name,
+      class_type_id: req.classType.class_type_id,
+      start_time,
+      duration,
+      intensity_level,
+      location,
+      registered_attendees,
+      max_size,
+    });
+    res.status(201).json(updatedClass);
+  } catch (error) {
+    next(error);
   }
 });
 
