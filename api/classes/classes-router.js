@@ -29,8 +29,6 @@ router.post("/", checkUniqueType, async (req, res, next) => {
     registered_attendees,
     max_size,
   } = req.body;
-  // const class_type_id = req.classType[0].class_type_id;
-  // console.log(req.classType[0].class_type_id);
   try {
     const newClass = await Classes.addClass({
       name,

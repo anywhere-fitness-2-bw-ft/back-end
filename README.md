@@ -40,7 +40,7 @@ Logging in will create a token.
 
 [GET] /api/classes/:id - Retrieves the class of the given ID.
 
-[POST] /api/classes - Creates a new class. 2. If class_type_name doesn't already exist, it will be added to a seperate class type table and stored for future use.
+[POST] /api/classes - Creates a new class.
 
 The object must have:
 
