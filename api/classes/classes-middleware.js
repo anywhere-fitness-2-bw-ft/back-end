@@ -33,19 +33,4 @@ const checkUniqueType = async (req, res, next) => {
   }
 };
 
-// const addNewClassType = async (req, res, next) => {
-//   try {
-//     console.log(req.classType);
-//     if (!req.classType) {
-//       const newClassType = await Classes.addClassType(req.body.class_type_name);
-//       req.classType = newClassType;
-//       next();
-//     } else {
-//       next();
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
-// };
-
 module.exports = { checkId, checkUniqueType };
