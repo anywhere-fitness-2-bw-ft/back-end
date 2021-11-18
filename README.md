@@ -255,5 +255,3 @@ Edit Response Example:
 ```
 
 [DELETE] /api/classes/:id - Deletes a class of the given ID.
-
-Other User Endpoints tbd
